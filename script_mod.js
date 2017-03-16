@@ -1,14 +1,17 @@
 
 window.addEventListener('load', function () {
 
-    var content = document.getElementById('output');
+    var content = document.getElementById('content');
     var globalContentPrevious = '';
     var Search_btn = document.getElementById('Search');
     var Search_txt = document.getElementById('searchtext');
     var srch_status = document.getElementById('status');
     var match_str = '';
     var ignorecase = document.getElementById('ignorecase');
-    function storeContentToLocalStorage() {
+    
+    srch_status.innerText="";
+    srch_status.style.display='none';
+    /*function storeContentToLocalStorage() {
         if (typeof (Storage) !== "undefined" && localStorage.getItem("username") === null) {
             // Code for localStorage.
 
@@ -22,10 +25,10 @@ window.addEventListener('load', function () {
         }
     }//end of storeContentToLocalStorage()
 
-    storeContentToLocalStorage();
+    storeContentToLocalStorage();*/
 
     //get the text data back from LocalStorage
-    function getContentFromLocalStorage() {
+    /*function getContentFromLocalStorage() {
 
         if (typeof (Storage) !== "undefined") {
             // Code for localStorage.
@@ -41,8 +44,9 @@ window.addEventListener('load', function () {
 
     }   //end 
 
-    getContentFromLocalStorage();
+    getContentFromLocalStorage(); */
 
+    globalContentPrevious=content.innerText // taking backup of the content 
 
 
 
@@ -60,14 +64,17 @@ window.addEventListener('load', function () {
         if (event.keyCode == '13') {
 
             match_str = getsearchText();
-            if (ignorecase.checked == true) {
-                checkPresenceIgnoreCase(match_str);
-            }
-            else {
-                checkPresence(match_str);
-            }
-
-        }
+            if(match_str!=" ")
+            {
+                    if (ignorecase.checked == true) 
+                    {
+                            checkPresenceIgnoreCase(match_str);
+                             }
+                    else {
+                                checkPresence(match_str);
+                             }
+                }          
+         }
 
 
 
@@ -77,7 +84,8 @@ window.addEventListener('load', function () {
     function onClickSearchButtonHandle() {
 
         match_str = getsearchText();
-
+        if(match_str!=" ")
+      {  
         if (ignorecase.checked == true)// if ignore case is checked 
         {
             checkPresenceIgnoreCase(match_str);
@@ -85,6 +93,8 @@ window.addEventListener('load', function () {
         else {
             checkPresence(match_str);
         }
+
+      }
     }// end of onClickSearchButtonHandle
 
 
@@ -135,11 +145,13 @@ window.addEventListener('load', function () {
             }
             if (!flag) {
                 console.log('not found');
+                srch_status.style.display='inline';
                 srch_status.innerText = 'not found';
             }
 
             else {
                 highlightText(matched, match, globalContentPrevious.split('')); //to add <mark> to highlight   the found texts
+                srch_status.style.display='inline';
                 srch_status.innerText = 'found';
             }
 
@@ -216,12 +228,12 @@ window.addEventListener('load', function () {
             len = match.length;
 
         for (i = 0; i < matched.length; i++) {
-            if (matched[i] == 0) {
+            /*if (matched[i] == 0) {
                 contentstr.splice(matched[i], 0, '<mark>');
-            }
-            else {
-                contentstr.splice(matched[i] + j, 0, '<mark>');
-            }
+            }*/
+            /*else {*/
+                contentstr.splice(matched[i] + j , 0, '<mark>');
+            //}
             //console.log(str);
             //str[matched[i]]='<mark>';
             //str[matched[i+match.length]]='</mark>';
