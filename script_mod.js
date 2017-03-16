@@ -64,7 +64,7 @@ window.addEventListener('load', function () {
         if (event.keyCode == '13') {
 
             match_str = getsearchText();
-            if(match_str!=" ")
+            if(match_str!=" " && match_str!='')
             {
                     if (ignorecase.checked == true) 
                     {
@@ -84,7 +84,7 @@ window.addEventListener('load', function () {
     function onClickSearchButtonHandle() {
 
         match_str = getsearchText();
-        if(match_str!=" ")
+        if(match_str!=" "&& match_str !='')
       {  
         if (ignorecase.checked == true)// if ignore case is checked 
         {
@@ -111,7 +111,7 @@ window.addEventListener('load', function () {
     function checkPresenceIgnoreCase(match) {
 
         content.innerHTML = globalContentPrevious;
-        if (Search_txt.value !== ''|| Search_txt.value !== ' ') {
+        if (match != ''|| Search_txt.value !== ' ') {
             if (globalContentPrevious) {
 
                 var contentstrIgnoreCase = globalContentPrevious;
@@ -168,7 +168,7 @@ window.addEventListener('load', function () {
     //gets input using getsearchText() and calls highlightText()
     function checkPresence(match) {
         content.innerHTML = globalContentPrevious;
-        if (Search_txt.value !== ''|| Search_txt.value !== ' ') {
+        if (match != ''|| Search_txt.value !== ' ') {
             if (globalContentPrevious) {
 
                 var contentstr = globalContentPrevious;
@@ -202,11 +202,13 @@ window.addEventListener('load', function () {
             if (!flag) {
                 console.log('not found');
                 srch_status.innerText = 'not found';
+                srch_status.style.display='inline';
             }
 
             else {
                 highlightText(matched, match, contentstr); //to add <mark> to highlight   the found texts
                 srch_status.innerText = 'found';
+                srch_status.style.display='inline';
             }
 
         }
@@ -214,7 +216,7 @@ window.addEventListener('load', function () {
 
 
 
-    checkPresence(match_str);
+    
 
 
 

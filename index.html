@@ -1,20 +1,48 @@
 <html>
-<script src="script_mod.js">
+  <head>
+<script src="script_mod.js"></script>  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+
+    mark{
+        background-color: #FFC107
+   }
+  </style>
+</head>
 
 
 
-</script>    
+
+
+
+
+  
 <body>
 
+  <header class="jumbotron" style="text-align:center; background-color:#8BC34A;">
+
+    <h2> Search App </h2>
+
+  <input placeholder="enter the key to be searched" style="border-radius:2px;" id='searchtext' type="text" >
+    <button class="btn btn-default" id='Search'><i class="glyphicon glyphicon-search"></i></button> 
+    
+    <br/>
+    <div style="margin-left: 3px;">
+    <input type="checkbox" id='ignorecase' value="case insensitive"  ><label> Ignore Case</label>
+    </div>
+    <div style="position:absolute; left:47%;">
+      <label id="status" > </label>
+    </div>
+  </header>
+  <section class="container jumbotron" >
   <p id='content'>
   Earth's Mightiest Heroes joined forces to take on threats that were too big for any one hero to tackle. With a roster that has included Captain America, Iron Man, Scarlet Witch, Hulk, Thor, Clint Barton and dozens more over the years, the Avengers have come to be regarded as Earth's No. 1 team.
   </p>
-
+  </section>
   <br/>
-    <label> :</label><input placeholder="enter the key to be searched" id='searchtext' type="text" >
-    <button id='Search'>Search</button> 
-    <label id="status"> </label>
-    <br/>
-    <input type="checkbox" id='ignorecase' value="case insensitive" ><label> Ignore Case</label>
+    
 </body>
 </html>
