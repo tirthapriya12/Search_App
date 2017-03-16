@@ -124,13 +124,14 @@ window.addEventListener('load', function () {
             contentstrIgnoreCase = contentstrIgnoreCase.split('');
             var matched = [], j = 0, i = 0, flag = 0;
             //gets the string to be searched
+            
 
             //len=match.length;
             while (i < contentstrIgnoreCase.length) {
                 var matcher = contentstrIgnoreCase.slice(i, i + match.length);
                 matcher = matcher.join('');
                 /*document.getElementById('output').innerHTML =*///console.log( matcher);
-                if (matcher.search(match) != -1) {
+                if (matcher.indexOf(match) != -1) {
                     console.log(matcher + ' ' + i);
                     matched[j++] = i;
                     i = i + match.length + 1; // incrment i by the length of matching string
@@ -142,7 +143,9 @@ window.addEventListener('load', function () {
                 }
 
 
-            }
+            
+
+           }
             if (!flag) {
                 console.log('not found');
                 srch_status.style.display='inline';
@@ -176,17 +179,20 @@ window.addEventListener('load', function () {
 
             }
 
+            
+
 
             contentstr = contentstr.split('');
             var matched = [], j = 0, i = 0, flag = 0;
             //gets the string to be searched
+            
 
             //len=match.length;
             while (i < contentstr.length) {
                 var matcher = contentstr.slice(i, i + match.length);
                 matcher = matcher.join('');
                 /*document.getElementById('output').innerHTML =*///console.log( matcher);
-                if (matcher.search(match) != -1) {
+                if (matcher.indexOf(match) != -1) {
                     console.log(matcher + ' ' + i);
                     matched[j++] = i;
                     i = i + match.length + 1; // incrment i by the length of matching string
@@ -198,7 +204,8 @@ window.addEventListener('load', function () {
                 }
 
 
-            }
+                
+             }   
             if (!flag) {
                 console.log('not found');
                 srch_status.innerText = 'not found';
@@ -209,8 +216,9 @@ window.addEventListener('load', function () {
                 highlightText(matched, match, contentstr); //to add <mark> to highlight   the found texts
                 srch_status.innerText = 'found';
                 srch_status.style.display='inline';
-            }
+                 }
 
+            
         }
     }  // end of checkPresence()
 
